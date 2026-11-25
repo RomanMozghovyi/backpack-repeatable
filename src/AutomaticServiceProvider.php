@@ -70,7 +70,13 @@ trait AutomaticServiceProvider
             // Add default ViewNamespaces
             foreach (['buttons', 'columns', 'fields', 'filters', 'widgets'] as $viewNamespace) {
                 if ($this->packageDirectoryExistsAndIsNotEmpty("resources/views/$viewNamespace")) {
-                    ViewNamespaces::addFor($viewNamespace, $this->vendorNameDotPackageName()."::{$viewNamespace}");
+                    if (class_exists(ViewNamespaces::class)) {
+                        ViewNamespaces::addFor($viewNamespace, $this->vendorNameDotPackageName()."::{$viewNamespace}");
+                    } else {
+                        $this->callAfterResolving('view', function ($view) {
+                            $view->prependNamespace('crud', $this->packageViewsPath());
+                        });
+                    }
                 }
             }
         }
