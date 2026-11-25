@@ -1,11 +1,11 @@
 # Backpack Repeatable
 
-Nested repeatable fields for Backpack 6, targeting Laravel 10–12 and PHP 8.1+ (Laravel 11–12 require PHP 8.2+).
+Nested repeatable fields for Backpack 4, 5 and 6. The package requires PHP 7.4+; the installed Laravel and Backpack versions determine their own additional requirements.
 
 ## Local installation
 
 Add a Composer path repository pointing to this package, with `options.versions` set to `{"uiarts/backpack-repeatable":"0.1.0"}`, then require `uiarts/backpack-repeatable:^0.1`.
-The workspace root Laravel 8 application is not a compatible test host.
+Laravel and Backpack versions must also be compatible with each other; Composer enforces their upstream requirements.
 
 Publish assets after installation and each package update:
 
@@ -37,4 +37,4 @@ AJAX rendering uses the configured Backpack route prefix and admin middleware. O
 
 ## Validation
 
-Run `composer install` and `composer test` inside this package. Integration tests use Orchestra Testbench; verify nested editing, reordering, validation errors, multiple repeatables, and editor lifecycle in a Backpack 6 browser host before release. This is an initial extraction, not a verified production release.
+Run `composer install` and `composer test` inside this package. Integration tests use Orchestra Testbench; verify nested editing, reordering, validation errors, multiple repeatables, and editor lifecycle in Backpack 4, 5 and 6 browser hosts before release. This is an initial extraction, not a verified production release.
