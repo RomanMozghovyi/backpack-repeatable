@@ -1,0 +1,106 @@
+
+        /* Block chrome. Previously supplied by crud::fields.repeatable, which
+           no longer renders now that everything uses this builder. */
+        .repeatable-element-gpt {
+            position: relative;
+            border: 1px solid rgba(0, 40, 100, .12);
+            border-radius: 5px;
+            background-color: #f0f3f94f;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+
+        /* Gutter for the controls comes from the container, so the block itself
+           stays full width and does not overflow to the right */
+        .container-repeatable-elements,
+        .container-repeatable-elements-root {
+            padding-left: 24px;
+        }
+
+        .container-repeatable-elements .form-group,
+        .container-repeatable-elements-root .form-group {
+            margin-bottom: 1em;
+        }
+
+        /* Delete / move controls, stacked in the block's left gutter */
+        .repeatable-element-gpt > .controls {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            top: 6px;
+            left: -16px;
+            z-index: 2;
+        }
+
+        .repeatable-element-gpt > .controls button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            float: none;
+            height: 30px;
+            width: 30px;
+            padding: 0;
+            margin-bottom: 2px;
+            border: 0;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: #e8ebf0;
+            color: #161c2d;
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1;
+            opacity: .5;
+            text-shadow: 0 1px 0 #fff;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        .repeatable-element-gpt > .controls button:hover {
+            opacity: 1;
+        }
+
+        .repeatable-element-gpt > .controls button.move-element-up,
+        .repeatable-element-gpt > .controls button.move-element-down {
+            height: 24px;
+            width: 24px;
+            margin: 2px auto;
+        }
+
+        /* The move icons ship without intrinsic dimensions */
+        .repeatable-element-gpt > .controls button svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            pointer-events: none;
+        }
+
+        /* JS disables these on the first and last block */
+        .repeatable-element-gpt > .controls button:disabled {
+            display: none;
+        }
+
+        .repeatable-element-gpt.is-loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .repeatable-element-gpt .field-loading {
+            min-height: 60px;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            margin-bottom: 1em;
+        }
+
+        .repeatable-element-gpt {
+            opacity: 0;
+            animation: fadeInElement 0.2s ease forwards;
+        }
+
+        @keyframes fadeInElement {
+            to { opacity: 1; }
+        }
